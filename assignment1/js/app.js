@@ -13,9 +13,13 @@
             var theresult;
 
             theresult = ($scope.dishes).split(",").length;
-            $scope.themessage= theresult + " Enjoy"
-            if(theresult >=3 ){$scope.themessage= theresult + " Too Much!"}
-            if($scope.dishes == "" ){$scope.themessage= "Please enter data first"}
+            $scope.themessage = theresult + " Enjoy"
+            if (theresult > 3) {
+                $scope.themessage = theresult + " Too Much!"
+            }
+            if ($scope.dishes == "") {
+                $scope.themessage = "Please enter data first"
+            }
         };
     }
 
