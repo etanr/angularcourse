@@ -1,24 +1,22 @@
 (function () {
-'use strict';
+    'use strict';
 
-angular.module('MsgApp', [])
-.controller('MsgController', MsgController);
+    angular.module('CountApp', [])
+        .controller('CountController', CountController);
 
-MsgController.$inject = ['$scope', '$filter'];
-function MsgController($scope, $filter) {
-  $scope.name = "Yaakov";
-  $scope.stateOfBeing = "hungry";
-  $scope.cookieCost = .45;
+    CountController.$inject = ['$scope'];
+    function CountController($scope) {
+        $scope.themessage = "";
+        $scope.dishes = "";
 
-  $scope.sayMessage = function () {
-    var msg = "Yaakov likes to eat healthy snacks at night!";
-    var output = $filter('uppercase')(msg);
-    return output;
-  };
+        $scope.countIt = function () {
+            var theresult;
 
-  $scope.feedYaakov = function () {
-    $scope.stateOfBeing = "fed";
-  };
-}
+            theresult = ($scope.dishes).split(",").length;
+            $scope.themessage= theresult + " Enjoy"
+            if(theresult >=3 ){$scope.themessage= theresult + " Too Much!"}
+            if($scope.dishes == "" ){$scope.themessage= "Please enter data first"}
+        };
+    }
 
 })();
